@@ -1,3 +1,4 @@
-Plane = function(){
+Plane = function(name){
+  this.name = name;
 
 };

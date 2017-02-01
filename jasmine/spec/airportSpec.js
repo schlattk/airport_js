@@ -44,5 +44,25 @@ describe("Airport", function(){
     airport = new Airport(5);
     expect(airport.capacity).toBe(5);
   });
+  it("should prevent landing if airport is full", function(){
+    airport = new Airport(1);
+    boeing = new Plane();
+    airbus = new Plane();
+    spyOn(airport,'isStormy').and.returnValue(false);
+    airport.land(boeing);
+    expect(function(){airport.land(airbus);}).toThrow("airport is full!");
+  });
+  it("should not contain planes that have taken off", function(){
+    airport = new Airport(5);
+    boeing = new Plane("boeing");
+    airbus = new Plane("airbus");
+    spyOn(airport,'isStormy').and.returnValue(false);
+    airport.land(boeing);
+    airport.land(airbus);
+    airport.takeOff(airbus);
+    expect(airport.planes).toContain(jasmine.objectContaining(boeing));
+    expect(airport.planes.length).toBe(1);
+  });
+
 
 });
