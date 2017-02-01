@@ -11,6 +11,7 @@ describe("Airport", function(){
   it("confirms when a plane has landed", function(){
     airport = new Airport();
     plane = new Plane();
+    spyOn(airport,'isStormy').and.returnValue(false);
     expect(airport.land(plane)).toContain("plane has landed");
   });
   it("knows that isStormy returns either true or false",function(){
@@ -25,6 +26,23 @@ describe("Airport", function(){
   it("should throw an error if planes want to take off when it's stormy",function(){
     airport = new Airport();
     spyOn(airport,'isStormy').and.returnValue(true);
-    expect(function(){airport.takeOff(plane);}).toThrow("Can't take off when its stormy");
+    expect(function(){airport.takeOff(plane);}).toThrow("Can't take off when it's stormy");
   });
+  it("should throw an error if planes want to land when it's stormy",function(){
+    airport = new Airport();
+    spyOn(airport,'isStormy').and.returnValue(true);
+    expect(function(){airport.land(plane);}).toThrow("Can't land when it's stormy");
+  });
+  it("should contain planes that have landed", function(){
+    airport = new Airport();
+    plane = new Plane();
+    spyOn(airport,'isStormy').and.returnValue(false);
+    airport.land(plane);
+    expect(airport.planes).toContain(plane);
+  });
+  it("should have a maximum capacity",function(){
+    airport = new Airport(5);
+    expect(airport.capacity).toBe(5);
+  });
+
 });

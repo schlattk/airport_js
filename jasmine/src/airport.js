@@ -1,15 +1,22 @@
-Airport = function() {
+Airport = function(capacity) {
   this.planes = [];
+  this.capacity = capacity;
 };
 
   Airport.prototype.land = function(plane) {
-    return "plane has landed";
+  var condition = this.isStormy();
+  if (condition == true){
+    throw ("Can't land when it's stormy")
+  }
+  else{
+    this.planes.push(plane)
+    return "plane has landed";}
   };
 
   Airport.prototype.takeOff = function(plane) {
-    condition = this.isStormy();
+    var condition = this.isStormy();
     if ( condition == true) {
-    throw ("Can't take off when its stormy");
+    throw ("Can't take off when it's stormy");
     }
     else{
     return "plane has taken off"}
