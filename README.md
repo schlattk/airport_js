@@ -30,8 +30,8 @@ I would like a default airport capacity that can be overridden as appropriate
 
 ## Console Commands ##
 
-• Paris = new Airport(2);
-• Airport {planes: Array(0), capacity: 2}
+- Paris = new Airport(2);
+- Airport {planes: Array(0), capacity: 2}
 
 boeing = new Plane('boeing')
 Plane {name: "boeing"}
