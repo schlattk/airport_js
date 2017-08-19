@@ -33,30 +33,30 @@ I would like a default airport capacity that can be overridden as appropriate
 - Paris = new Airport(2);
 - Airport {planes: Array(0), capacity: 2}
 
-boeing = new Plane('boeing')
-Plane {name: "boeing"}
-airbus = new Plane('airbus')
-Plane {name: "airbus"}
-spitfire = new Plane('spitfire')
-Plane {name: "spitfire"}
+- boeing = new Plane('boeing')
+- Plane {name: "boeing"}
+- airbus = new Plane('airbus')
+- Plane {name: "airbus"}
+- spitfire = new Plane('spitfire')
+- Plane {name: "spitfire"}
 
-Paris.land('boeing');
-airport.js:9 Uncaught Can't land when it's stormy
+- Paris.land('boeing');
+- airport.js:9 Uncaught Can't land when it's stormy
 
-Paris.land('boeing');
-"plane has landed"
-Paris.land('airbus');
-"plane has landed"
-Paris.land('spitfire');
-airport.js:12 Uncaught airport is full!
+- Paris.land('boeing');
+- "plane has landed"
+- Paris.land('airbus');
+- "plane has landed"
+- Paris.land('spitfire');
+- airport.js:12 Uncaught airport is full!
 
-Paris.planes;
-(2) ["boeing", "airbus"]
+- Paris.planes;
+- (2) ["boeing", "airbus"]
 
-Paris.takeOff('boeing');
-airport.js:22 Uncaught Can't take off when it's stormy
-Paris.takeOff('boeing');
-"plane has taken off"
+- Paris.takeOff('boeing');
+- airport.js:22 Uncaught Can't take off when it's stormy
+- Paris.takeOff('boeing');
+- "plane has taken off"
 
-Paris.planes;
-["airbus"]
+- Paris.planes;
+- ["airbus"]
